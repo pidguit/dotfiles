@@ -1,4 +1,4 @@
-general.import = ["/home/Pidguit/.config/alacritty/themes/tokyonight_night.toml"]
+general.import = ["/home/Pidguit/.config/alacritty/themes/tokyonight_moon.toml"]
 
 [window]
-opacity = 1 
+opacity = 0.8
