@@ -1,0 +1,4 @@
+general.import = ["/home/Pidguit/.config/alacritty/themes/tokyonight_night.toml"]
+
+[window]
+opacity = 1 
