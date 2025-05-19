@@ -1,15 +1,16 @@
 # Minimal Zsh config
 
 # Prompt
-PROMPT='%F{13}%n%F{69} > %F{15}%~ %F{10}$%f '
+PROMPT=' %F{13}%n%F{69} > %F{15}%~ %F{10}$%f '
 
 # Enable command auto-correction
 unsetopt CORRECT
 
 # Enable command history
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=5000
+SAVEHIST=5000
+HISTDUP=erase
 
 # Share history across terminals
 setopt SHARE_HISTORY
@@ -24,13 +25,15 @@ alias grep='grep --color=auto'
 alias neofetch='fastfetch'
 alias refresh='source ~/.zshrc'
 alias zshedit='nvim ~/.config/zsh/zshrc'
+alias update='sudo pacman -Syu;flatpak update'
 
-# Turning on Plugins
-source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
+# Changes the correct syntax color, plugin sourced below
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[command]='fg=15'
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=15'
 ZSH_HIGHLIGHT_STYLES[alias]='fg=15'
+
+# Turning on Plugins
+source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
