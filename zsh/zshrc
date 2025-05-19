@@ -1,0 +1,26 @@
+# Minimal Zsh config
+
+# Prompt
+PROMPT='%n@%m:%~%# '
+
+# Enable command auto-correction
+setopt CORRECT
+
+# Enable command history
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+
+# Share history across terminals
+setopt SHARE_HISTORY
+
+# Autocompletion
+autoload -Uz compinit
+compinit
+
+# Enable color output for ls and grep
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias neofetch='fastfetch'
+alias refresh='source ~/.zshrc'
+alias zshedit='nvim ~/.config/zsh/zshrc'
