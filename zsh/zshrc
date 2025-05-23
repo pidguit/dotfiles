@@ -6,16 +6,17 @@ PROMPT=' %F{13}%n%F{69} > %F{15}%~ %F{10}$%f '
 # Enable command auto-correction
 unsetopt correct
 
-# Enable command history
+# Sets up command history 
 HISTFILE=~/.zsh_history
 HISTSIZE=5000
 SAVEHIST=5000
 HISTDUP=erase
-
-# Share history across terminals
 setopt share_history 
 setopt hist_ignore_all_dups
+
+# Sets up cd without having to type in cd
 setopt auto_cd
+
 # Autocompletion
 autoload -Uz compinit
 compinit
