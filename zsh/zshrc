@@ -4,7 +4,7 @@
 PROMPT=' %F{13}%n%F{69} > %F{15}%~ %F{10}$%f '
 
 # Enable command auto-correction
-unsetopt CORRECT
+unsetopt correct
 
 # Enable command history
 HISTFILE=~/.zsh_history
@@ -13,8 +13,9 @@ SAVEHIST=5000
 HISTDUP=erase
 
 # Share history across terminals
-setopt SHARE_HISTORY
-
+setopt share_history 
+setopt hist_ignore_all_dups
+setopt auto_cd
 # Autocompletion
 autoload -Uz compinit
 compinit
@@ -37,3 +38,4 @@ ZSH_HIGHLIGHT_STYLES[alias]='fg=15'
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+bindkey ^J forward-char # This just changes ctrl+j to right arrow, which is useful when used with autocorrect. Default bind is enter
