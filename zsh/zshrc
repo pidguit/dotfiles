@@ -3,13 +3,16 @@
 # Prompt
 PROMPT=' %F{13}%n%F{69} > %F{15}%~ %F{10}$%f '
 
+# Loads all custom binds
+source ~/.config/zsh/binds
+
 # Enable command auto-correction
 unsetopt correct
 
 # Sets up command history 
 HISTFILE=~/.zsh_history
-HISTSIZE=5000
-SAVEHIST=5000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTDUP=erase
 setopt share_history 
 setopt hist_ignore_all_dups
@@ -28,6 +31,7 @@ alias neofetch='fastfetch'
 alias refresh='source ~/.zshrc'
 alias zshedit='nvim ~/.config/zsh/zshrc'
 alias update='sudo pacman -Syu;flatpak update'
+alias shutdown=poweroff
 
 # Changes the correct syntax color, plugin sourced below
 typeset -A ZSH_HIGHLIGHT_STYLES
@@ -39,4 +43,3 @@ ZSH_HIGHLIGHT_STYLES[alias]='fg=15'
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-bindkey ^J forward-char # This just changes ctrl+j to right arrow, which is useful when used with autocorrect. Default bind is enter
