@@ -4,7 +4,7 @@
 PROMPT=' %F{13}%n%F{69} > %F{15}%~ %F{10}$%f '
 
 # Loads all custom binds
-source ~/.config/zsh/binds
+source ~/.config/zsh/binds.zsh
 
 # Enable command auto-correction
 unsetopt correct
@@ -24,14 +24,8 @@ setopt auto_cd
 autoload -Uz compinit
 compinit
 
-# Enable color output for ls and grep
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias neofetch='fastfetch'
-alias refresh='source ~/.zshrc'
-alias zshedit='nvim ~/.config/zsh/zshrc'
-alias update='sudo pacman -Syu;flatpak update'
-alias shutdown=poweroff
+# Loads all my custom aliases
+source ~/.config/zsh/alias.zsh
 
 # Changes the correct syntax color, plugin sourced below
 typeset -A ZSH_HIGHLIGHT_STYLES
@@ -43,3 +37,10 @@ ZSH_HIGHLIGHT_STYLES[alias]='fg=15'
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Set up fzf key bindings and fuzzy completion
+# source <(fzf --zsh)
+# source ~/.config/zsh/plugins/fzf
+
+#autoload -Uz compinit
+#compinit
+#source <(fzf --zsh)
