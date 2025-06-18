@@ -44,3 +44,6 @@ source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #autoload -Uz compinit
 #compinit
 #source <(fzf --zsh)
+#o
+alias portopenuxplay='sudo ufw allow 5353/udp; sudo ufw allow 7100/tcp; sudo ufw allow 7000/tcp; sudo ufw allow 7001/tcp; sudo ufw allow 7011/udp; sudo ufw allow 6001/udp; sudo ufw allow 6000/udp; sudo ufw allow proto udp to 224.0.0.251 port 5353'
+alias portcloseuxplay='sudo ufw delete allow 5353/udp; sudo ufw delete allow 7100/tcp; sudo ufw delete allow 7000/tcp; sudo ufw delete allow 7001/tcp; sudo ufw delete allow 7011/udp; sudo ufw delete allow 6001/udp; sudo ufw delete allow 6000/udp; sudo ufw delete allow proto udp to 224.0.0.251 port 5353'
