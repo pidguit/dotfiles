@@ -2,3 +2,4 @@ general.import = ["/home/Pidguit/.config/alacritty/themes/tokyonight_moon.toml"]
 
 [window]
 opacity = 0.8
+dynamic_title = true
