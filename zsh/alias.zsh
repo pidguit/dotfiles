@@ -12,7 +12,10 @@ alias update='sudo pacman -Syu;flatpak update'
 alias shutdown=poweroff
 alias resetbar='pkill waybar && hyprctl dispatch exec waybar'
 
-# git alias's, most borrowed from the ohmyzsh git plugin
+# Runs matlab on my local install
+alias matlab='QT_QPA_PLATFORM=xcb /home/Pidguit/matlab/bin/matlab -nodesktop'
+
+# git alias's, most are the same as the ohmyzsh git plugin
 alias grt='cd "$(git rev-parse --show-toplevel || echo .)"'
 alias g='git'
 alias ga='git add'
@@ -24,4 +27,12 @@ alias gp='git push'
 alias grs='git restore'
 alias grev='git revert'
 alias gre='git reset'
+
+# tmux alias's, most are the same as the ohmyzsh tmux plugin
+alias ts='tmux new-session -s'
+alias ta='tmux attach -t'
+alias tad='tmux attach -d -t'
+alias tl='tmux ls'
+alias tkss='tmux kill-session -t'
+alias tksv='tmux kill-server'
 
