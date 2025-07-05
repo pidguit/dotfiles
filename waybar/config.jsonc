@@ -8,20 +8,18 @@
     // Choose the order of the modules
     "modules-left": [
 	"clock",
-	"hyprland/workspaces",
+        "tray",
+	"hyprland/workspaces"
     ],
     "modules-center": [
-	"hyprland/window"
     ],
     "modules-right": [
-        "tray",
         "mpd",
         "pulseaudio",
-        "network",
         "power-profiles-daemon",
         "backlight",
-        "battery",
-        "battery#bat2",
+        "network",
+        "battery"
     ],
     
     "keyboard-state": {
@@ -79,10 +77,10 @@
     "tray": {
         "icon-size": 20,
         "spacing": 10,
-        // "icons": {
-        //   "blueman": "bluetooth",
+        "icons": {
+        //"blueman": "bluetooth",
         //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        // }
+        }
     },
     "clock": {
         // "timezone": "America/New_York",
@@ -91,8 +89,7 @@
         "format-alt": "{:%m-%d-%y}"
     },
     "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
+        "format": "{usage}% "
     },
     "memory": {
         "format": "{}% "
@@ -107,7 +104,7 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
+        "format": "{icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
@@ -141,23 +138,25 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "",
+	"format": "{ifname}",
+        "format-wifi": "󰖩",
         "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
+        "tooltip-format": "Connected to {essid}",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+	"on-click": "exec nm-connection-editor", 
+        "format-disconnected": "⚠",
         //"format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-	"format": "{icon}  {volume}%",
-	"format-bluetooth": "󰂱 {volume}%",
-	"format-muted": "󰖁",
+	"format": "{icon} {volume}%",
+	"format-bluetooth": "󰂰 {volume}%",
+	"format-muted": "󰖁 0%",
 	"scroll-step": 1,
 	"on-click": "pavucontrol",
 	"ignored-sinks": ["Easy Effects Sink"],
 	"tooltip-format": "Volume: {volume}%",
 	"format-icons": {
-	    "headphone": "",
+	    "headphone": "󰋋",
 	    "hands-free": "",
 	    "headset": "󰋎",
 	    "phone": "",
