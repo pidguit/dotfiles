@@ -1,7 +1,15 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: JetBrains Mono Nerd Font;
+    min-height: 16px;
     font-size: 13px;
+    border: none;
+    border-radius: 3px;
+    padding: 0;
+    margin: 2px;
+    box-shadow: none;
+    text-shadow: none;
+    background-color: transparent;
 }
 
 window#waybar {
@@ -54,13 +62,15 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 0 7px;
+    border-radius: 3px;
+    padding: 0 5px;
     background-color: transparent;
     color: #ffffff;
 }
 
 #workspaces button.active {
-  background-color: #cba6f7;
+    background-color: #cba6f7;
+    color: #000000;
 }
 
 #workspaces button:hover {
@@ -122,7 +132,8 @@ button:hover {
 }
 
 #clock {
-    background-color: #64727D;
+    background-color: #89b4fa;
+    color: #000000;
 }
 
 #battery {
@@ -243,7 +254,7 @@ label:focus {
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: transparent; 
 }
 
 #tray > .passive {
