@@ -1,15 +1,11 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: JetBrains Mono Nerd Font;
-    min-height: 16px;
     font-size: 13px;
-    border: none;
+    padding: 1px;
     border-radius: 3px;
-    padding: 0;
-    margin: 2px;
-    box-shadow: none;
-    text-shadow: none;
-    background-color: transparent;
+    margin: 2px 2px 0 2px;
+    font-weight: bold;
 }
 
 window#waybar {
@@ -58,12 +54,12 @@ button:hover {
 
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
-    background-color: #a37800;
+    background-color: #d9ba7b;
 }
 
 #workspaces button {
     border-radius: 3px;
-    padding: 0 5px;
+    padding: 0px 5px 5px 5px;
     background-color: transparent;
     color: #ffffff;
 }
@@ -112,13 +108,13 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    padding: 0 10px;
+    padding: 0 5px;
     color: #ffffff;
 }
 
 #window,
 #workspaces {
-    margin: 0 4px;
+    margin: 0 0 0 2;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -132,12 +128,14 @@ button:hover {
 }
 
 #clock {
-    background-color: #89b4fa;
+    padding: 0px 10px;
+    background-color: #71b7c9;
     color: #000000;
 }
 
 #battery {
-    background-color: #ffffff;
+    padding: 0px 10px;
+    background-color: #a7d38c;
     color: #000000;
 }
 
@@ -165,22 +163,22 @@ button:hover {
 }
 
 #power-profiles-daemon {
-    padding-right: 15px;
+    color: #000000;
 }
 
 #power-profiles-daemon.performance {
+    padding: 0 12px;
     background-color: #f53c3c;
-    color: #ffffff;
 }
 
 #power-profiles-daemon.balanced {
+    padding: 0 15px 0 9px;
     background-color: #2980b9;
-    color: #ffffff;
 }
 
 #power-profiles-daemon.power-saver {
+    padding: 0 14px 0 10px;
     background-color: #2ecc71;
-    color: #000000;
 }
 
 label:focus {
@@ -201,11 +199,15 @@ label:focus {
 }
 
 #backlight {
-    background-color: #90b1b1;
+    color: #000000;
+    padding: 0 12px 0 11px;
+    background-color: #cfcfcf;
 }
 
 #network {
-    background-color: #2980b9;
+    color: #000000;
+    padding: 0 10px 0 9px;
+    background-color: #e3a674;
 }
 
 #network.disconnected {
@@ -213,7 +215,8 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
+    background-color: #f6d38c;
+    padding: 0px 11px;
     color: #000000;
 }
 
@@ -254,7 +257,10 @@ label:focus {
 }
 
 #tray {
-    background-color: transparent; 
+    background-color: rgba(36, 36, 52, 1.0);
+    padding: 0px 6px;
+    border-radius: 6px;
+    border-width: 0px;
 }
 
 #tray > .passive {
