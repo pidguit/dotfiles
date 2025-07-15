@@ -3,7 +3,7 @@
     font-family: JetBrains Mono Nerd Font;
     font-size: 13px;
     padding: 1px;
-    border-radius: 3px;
+    border-radius: 6px;
     margin: 2px 2px 0 2px;
     font-weight: bold;
 }
@@ -58,7 +58,7 @@ button:hover {
 }
 
 #workspaces button {
-    border-radius: 3px;
+    border-radius: 6px;
     padding: 0px 5px 5px 5px;
     background-color: transparent;
     color: #ffffff;
@@ -235,17 +235,12 @@ label:focus {
 }
 
 #custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
+    font-size: 14px;
+    color: #ffffff;
     min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
+    transition: opacity 0.4s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.25); 
+    padding: 0px 10px;
 }
 
 #temperature {
