@@ -14,7 +14,20 @@
     "memory",
     "disk",
     "battery",
+    //{
+    //  "type": "custom",
+    //  "format": "Comic Book Authority Approved"
+    //},
     "break",
     "colors"
-  ]
+  ],
+  "logo": {
+	"type": "file",        // Logo type: auto, builtin, small, file, etc.
+	"source":" ~/.config/fastfetch/ascii/comicbookauthority.txt",      // Built-in logo name or file path
+	"padding": {
+        "top": 1,          // Top padding
+        "left": 2,         // Left padding
+        "right": 6         // Right padding
+	}
+    }
 }
