@@ -1,0 +1,100 @@
+/* I HATE ROFI CONFIG UGHHH*/
+configuration {
+    display-drun: "Apps:";
+    display-window: "Window:";
+    modi: "drun,run,drun,window";
+    show-icons: true;
+    icon-theme: "Papirus";
+    font: "JetBrainsMono Nerd Font Medium 12";
+
+    /* better mouse support: */
+    click-to-exit: true;
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: [MousePrimary];
+}
+
+@theme "/dev/null"
+
+* {
+    bg: #00000000;
+    bg-alt: #cba6f7;
+    
+    fg-top: #000000;
+    fg: #FFFFFF;
+    fg-alt: #A9A9A9;
+
+    background-color: transparent;
+}
+
+window {
+    width: 35%;
+    background-color: @bg;
+    horizontal-align: 0.5;
+
+    border-radius: 5px;
+    border: 3px;
+    border-color: @bg-alt;
+}
+
+mainbox {
+    border: 0;
+    padding: 0;
+}
+
+inputbar {
+    children: [prompt,entry,num-filtered-rows, textbox-slash, num-rows];
+    padding: 5px;
+    background-color: @bg-alt;
+}
+
+prompt {
+    text-color: @fg-top;
+    padding: 5px 0 0 5px;
+}
+
+entry {
+    text-color: @fg-top;
+    padding: 5px 0 5px 0;
+}
+
+num-rows {
+    padding: 5px 5px 0 0;
+    text-color: @fg-top;
+}
+
+textbox-slash {
+    expand: false;
+    text-color: @fg-top;
+    padding: 5px 0 0 0;
+    content: "/";
+}
+
+num-filtered-rows {
+    padding: 5px 0 0 0;
+    text-color: @fg-top;
+}
+
+listview {
+    fixed-height: 0;
+    dynamic: true;
+    lines: 7;
+}
+
+element {
+    padding: 10;
+    border-radius: 3px;
+}
+
+element-text {
+    text-color: @fg-alt;
+}
+
+element-text selected {
+    text-color: @fg;
+}
+
+element-icon {
+    size: 25px;
+    padding: 0 10px 0 0;
+}
