@@ -1,8 +1,8 @@
 /* I HATE ROFI CONFIG UGHHH*/
 configuration {
     display-drun: "Apps:";
-    display-window: "Window:";
-    modi: "drun,run,drun,window";
+    display-window: "Windows:";
+    modi: "drun,run,window";
     show-icons: true;
     icon-theme: "Papirus";
     font: "JetBrainsMono Nerd Font Medium 12";
@@ -17,7 +17,7 @@ configuration {
 @theme "/dev/null"
 
 * {
-    bg: #00000000;
+    bg: #11111baa;
     bg-alt: #cba6f7;
     
     fg-top: #000000;
@@ -33,7 +33,7 @@ window {
     horizontal-align: 0.5;
 
     border-radius: 5px;
-    border: 3px;
+    /*border: 3px;*/
     border-color: @bg-alt;
 }
 
@@ -97,4 +97,5 @@ element-text selected {
 element-icon {
     size: 25px;
     padding: 0 10px 0 0;
+    display: true;
 }
