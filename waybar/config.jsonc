@@ -178,9 +178,9 @@
         "default": "🎜"
     },
     "exec": "~/.config/waybar/scripts/media_status.sh",
-    "on-click": "/usr/bin/playerctl play-pause",
-    "on-scroll-down": "/usr/bin/playerctl next",
-    "on-scroll-up": "/usr/bin/playerctl previous"
+    "on-click": "~/.config/waybar/scripts/media_status.sh play-pause",
+    "on-scroll-down": "~/.config/waybar/scripts/media_status.sh next",
+    "on-scroll-up": "~/.config/waybar/scripts/media_status.sh previous"
     },
     "hyprland/workspaces": {
 	"format": "{icon}",
