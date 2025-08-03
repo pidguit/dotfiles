@@ -206,6 +206,6 @@
 	"rewrite": {
 	   // ".*Mozilla Firefox": "Firefox", // Removes Firefoxs dynamic status bar to just Firefox 
 	    "(.*)": "$1"
-    }
+	}
     }
 }
