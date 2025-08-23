@@ -88,7 +88,7 @@
         // "timezone": "America/New_York",
 	"format": "{:%I:%M %p}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%m-%d-%y}"
+        "format-alt": "{:%m/%d/%y}"
     },
     "cpu": {
         "format": "{usage}% "
@@ -146,7 +146,7 @@
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "Signal Strength is {signalStrength}%",
         "format-linked": "{ifname} (No IP) ",
-	"on-click": "exec nm-connection-editor", 
+	"on-click": "exec alacritty -e nmtui", 
         "format-disconnected": "⚠"
         //"format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
