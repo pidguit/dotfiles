@@ -13,9 +13,6 @@ alias shutdown=poweroff
 alias resetbar='pkill waybar && hyprctl dispatch exec waybar'
 alias resetdunst='pkill dunst && hyprctl dispatch exec dunst'
 
-# Runs matlab on my local install
-alias matlab='QT_QPA_PLATFORM=xcb /home/Pidguit/.local/share/matlab/bin/matlab -nodesktop'
-
 # git alias's, most are the same as the ohmyzsh git plugin
 alias grt='cd "$(git rev-parse --show-toplevel || echo .)"'
 alias g='git'
