@@ -60,7 +60,7 @@ local menu        = "rofi -show drun"
 
     hl.exec_cmd("xwaylandvideobridge")
     hl.exec_cmd("/usr/lib/polkit-kdeauthentication-agent-1")
-    h1.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
     hl.exec_cmd("wl-clipboard")
 
     hl.exec_cmd("keepassxc --minimized")
@@ -76,18 +76,18 @@ local menu        = "rofi -show drun"
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-h1.env("XCURSOR_THEME", "breeze_cursors")
+hl.env("XCURSOR_THEME", "breeze_cursors")
 
-h1.env("XDG_CURRENT_DESKTOP", "hyprland")
-h1.env("XDG_CURRENT_TYPE", "wayland")
-h1.env("XDG_SESSION_DESKTOP", "hyprland")
+hl.env("XDG_CURRENT_DESKTOP", "hyprland")
+hl.env("XDG_CURRENT_TYPE", "wayland")
+hl.env("XDG_SESSION_DESKTOP", "hyprland")
 
-h1.env("GDK_SCALE", 1)
-h1.env("GDK_BACKEND", "wayland")
-h1.env("QT_AUTO_SCREEN_SCALE_FACTOR", 1)
-h1.env("QT_QPA_PLATFORM", "wayland")
-h1.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", 1)
-h1.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("GDK_SCALE", 1)
+hl.env("GDK_BACKEND", "wayland")
+hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", 1)
+hl.env("QT_QPA_PLATFORM", "wayland")
+hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", 1)
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 -----------------------
 ----- PERMISSIONS -----
@@ -187,9 +187,9 @@ hl.animation({ leaf = "layersIn",      enabled = true,  speed = 4,    bezier = "
 hl.animation({ leaf = "layersOut",     enabled = true,  speed = 1.5,  bezier = "linear",       style = "fade" })
 hl.animation({ leaf = "fadeLayersIn",  enabled = true,  speed = 1.79, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeLayersOut", enabled = true,  speed = 1.39, bezier = "almostLinear" })
-hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "workspaces",    enabled = false,  speed = 1.94, bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "workspacesIn",  enabled = false,  speed = 1.21, bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "workspacesOut", enabled = false,  speed = 1.94, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "quick" })
 
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
@@ -299,8 +299,8 @@ hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2
 hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd("pkill waybar || waybar &"))
 
 -- spotify bind here
-hl.bind(mainMod .. " + S", hl.dsp.toggle_special("spotify"))
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("pgrep spotify || spotify-launcher"))
+--hl.bind(mainMod .. " + S", hl.dsp.toggle_special("spotify"))
+--hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("pgrep spotify || spotify-launcher"))
 
 
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
