@@ -6,6 +6,9 @@ PROMPT=' %F{13}%n%F{69} > %F{15}%~ %F{10}$%f '
 # Loads all custom binds
 source ~/.config/zsh/binds.zsh
 
+# Loads nvm
+#source /usr/share/nvm/init-nvm.sh
+
 # Enable command auto-correction
 unsetopt correct
 
