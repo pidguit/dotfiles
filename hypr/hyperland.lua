@@ -153,9 +153,9 @@ hl.config({
             enabled   = true,
             size      = 6,
             passes    = 2,
-	    noise = 0,
-            vibrancy  = 0.1696,
-	    ignore_opacity = true,
+	        noise = 0,
+            brightness  = 0.95,
+	        ignore_opacity = true,
         },
     },
 
@@ -254,7 +254,7 @@ hl.config({
         kb_model   = "",
         kb_options = "",
         kb_rules   = "",
-	numlock_by_default=true
+	    numlock_by_default=true,
 
         follow_mouse = 1,
 
@@ -262,7 +262,7 @@ hl.config({
 
         touchpad = {
             natural_scroll = true,
-	    disable_while_typing=false
+	        disable_while_typing = false
         },
     },
 })
@@ -289,20 +289,32 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
--- closeWindowBind:set_enabled(false)
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("firefox"))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("discord"))
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd("pkill waybar || waybar &"))
+
+-- spotify bind here
+hl.bind(mainMod .. " + S", hl.dsp.toggle_special("spotify"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("pgrep spotify || spotify-launcher"))
+
+
+local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
+-- closeWindowBind:set_enabled(false)
+-- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + PERIOD", hl.dsp.exec_cmd("smile"))
+hl.bind("PRINT", hl.dsp.exec_cmd("/home/Pidguit/.config/hypr/scripts/screenshot.sh"))
+hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("grim $HOME/Pictures/Screenshots/Screenshot_$(date +%m%d%Y_%H%M%S).png"))
 
 -- Move focus with mainMod + arrow keys
-hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + h",  hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + k",    hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + j",  hl.dsp.focus({ direction = "down" }))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
@@ -387,4 +399,21 @@ hl.window_rule({
 
     move  = "20 monitor_h-120",
     float = true,
+})
+
+hl.layer_rule({
+    match = { namespace = "rofi" },
+    blur = true
+})
+
+hl.window_rule({
+        name = "xwayland-video-bridge-fixes",
+        match = { class = "xwaylandvideobridge" },
+
+        no_initial_focus = true,
+        no_focus = true,
+        no_anim = true,
+        no_blur = true,
+        max_size = { 1, 1},
+        opacity = 0.0
 })
