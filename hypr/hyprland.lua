@@ -60,7 +60,6 @@ local menu        = "rofi -show drun"
 
     hl.exec_cmd("xwaylandvideobridge")
     hl.exec_cmd("/usr/lib/polkit-kdeauthentication-agent-1")
-    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
     hl.exec_cmd("wl-clipboard")
 
     hl.exec_cmd("keepassxc --minimized")
@@ -77,10 +76,6 @@ local menu        = "rofi -show drun"
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("XCURSOR_THEME", "breeze_cursors")
-
-hl.env("XDG_CURRENT_DESKTOP", "hyprland")
-hl.env("XDG_CURRENT_TYPE", "wayland")
-hl.env("XDG_SESSION_DESKTOP", "hyprland")
 
 hl.env("GDK_SCALE", 1)
 hl.env("GDK_BACKEND", "wayland")
@@ -141,13 +136,6 @@ hl.config({
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
         inactive_opacity = 1.0,
-
-	--shadow = {
-        --    enabled      = true,
-        --    range        = 4,
-        --    render_power = 3,
-        --    color        = 0xee1a1a1a,
-        --},
 
         blur = {
             enabled   = true,
@@ -299,11 +287,12 @@ hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2
 hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd("pkill waybar || waybar &"))
 
 -- spotify bind here
---hl.bind(mainMod .. " + S", hl.dsp.toggle_special("spotify"))
---hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("pgrep spotify || spotify-launcher"))
+hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("spotify"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("pgrep spotify || spotify-launcher"))
 
 
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
+--local  closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("/home/Pidguit/.config/hypr/scripts/closeunlessspotify.sh"))
 -- closeWindowBind:set_enabled(false)
 -- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + PERIOD", hl.dsp.exec_cmd("smile"))
@@ -325,12 +314,16 @@ for i = 1, 10 do
 end
 
 -- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(mainMod .. " + A",         hl.dsp.workspace.toggle_special("magic"))
+hl.bind(mainMod .. " + SHIFT + A", hl.dsp.window.move({ workspace = "special:magic" }))
+
+hl.bind(mainMod .. " + X", hl.dsp.window.move({workspace = "special:temp"}))
+hl.bind(mainMod  .. " + X", hl.dsp.workspace.toggle_special("temp"))
+hl.bind(mainMod  .. " + SHIFT + X", hl.dsp.window.move({workspace = "special:temp"}))
 
 -- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + left", hl.dsp.focus({ workspace = "-1" }))
+hl.bind(mainMod .. " + right",   hl.dsp.focus({ workspace = "+1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
@@ -395,15 +388,20 @@ hl.window_rule({
 -- Hyprland-run windowrule
 hl.window_rule({
     name  = "move-hyprland-run",
-    match = { class = "hyprland-run" },
+    match = {class = "hyprland-run"},
 
     move  = "20 monitor_h-120",
     float = true,
 })
 
 hl.layer_rule({
-    match = { namespace = "rofi" },
+    match = {namespace = "rofi"},
     blur = true
+})
+
+hl.window_rule({
+    match = {class = "it.mijorus.smile"},
+    float = true
 })
 
 hl.window_rule({
