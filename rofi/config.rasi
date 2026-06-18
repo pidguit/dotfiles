@@ -4,7 +4,7 @@ configuration {
     display-window: "Windows:";
     modi: "drun,run,window";
     show-icons: true;
-    icon-theme: "Papirus";
+    icon-theme: "Delta";
     font: "JetBrainsMono Nerd Font Medium 12";
 
     /* better mouse support: */
