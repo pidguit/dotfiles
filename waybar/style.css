@@ -59,8 +59,8 @@ button:hover {
 
 #workspaces button {
     border-radius: 6px;
-    padding: 0px 5px 5px 5px;
-    background-color: transparent;
+    padding: 0 5px 5px 5px;
+    min-width: 20px;
     color: #ffffff;
 }
 
@@ -114,7 +114,7 @@ button:hover {
 
 #window,
 #workspaces {
-    margin: 0 0 0 2;
+    margin: 0 0 0 2px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
