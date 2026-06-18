@@ -13,7 +13,16 @@
 ------------------
 ---- MONITORS ----
 ------------------
+hl.on("hyprland.start", function()
+    hl.exec_cmd("systemctl --user start hyprland-session.target")
+end)
 
+hl.on("hyprland.shutdown", function()
+    os.execute("systemctl --user stop hyprland-session.target && sleep 0.1")
+    -- uses a blocking exec function and sleeps a bit to give things time to close
+    -- you might also want to kill troublesome/crashing non-systemd background services here:
+    -- os.execute("pkill wallpaperthing; systemctl --user stop hyprland-session.target && sleep 0.1")
+end)
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
     output   = "eDP-1",
@@ -55,7 +64,8 @@ local menu        = "rofi -show drun"
 -- Or execute your favorite apps at launch like this:
 --
  hl.on("hyprland.start", function () 
-    hl.exec_cmd("waybar & hyprpaper")
+--    hl.exec_cmd("~/.config/hypr/scripts/xdgportal.sh")
+    hl.exec_cmd("hyprpaper  & waybar")
     hl.exec_cmd("dunst")
 
     hl.exec_cmd("xwaylandvideobridge")
@@ -102,11 +112,22 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 -- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
 -- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
 
+hl.window_rule {
+    name = "xwayland-video-bridge-fixes",
+    match = { class = "xwaylandvideobridge" },
+
+    no_initial_focus = true,
+    no_focus = true,
+    no_anim = true,
+    no_blur = true,
+    max_size = { 1, 1 },
+    opacity = 0.0
+}
 
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
-
+---
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
@@ -402,16 +423,4 @@ hl.layer_rule({
 hl.window_rule({
     match = {class = "it.mijorus.smile"},
     float = true
-})
-
-hl.window_rule({
-        name = "xwayland-video-bridge-fixes",
-        match = { class = "xwaylandvideobridge" },
-
-        no_initial_focus = true,
-        no_focus = true,
-        no_anim = true,
-        no_blur = true,
-        max_size = { 1, 1},
-        opacity = 0.0
 })
